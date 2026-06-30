@@ -1,0 +1,108 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 id="hero-title">{{ site.name }}</h1>
+        <p>{{ site.description }}</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#categories" class="btn btn-accent btn-lg">Explore Categories</a>
+          <a href="{{ site.url }}/search/" class="btn btn-outline btn-lg" style="border-color: rgba(255,255,255,0.5); color: white;">Search Products</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Articles -->
+{% if featuredArticles.length > 0 %}
+<section class="container" aria-labelledby="featured-heading">
+  <header style="margin-bottom: 2rem;">
+    <h2 id="featured-heading">Top Picks This Week</h2>
+    <p class="text-muted">Our most popular guides, updated with the latest prices and availability.</p>
+  </header>
+  <div class="quick-picks">
+    {% for article in featuredArticles %}
+    <article class="quick-pick-card {% if loop.index == 1 %}best{% elif loop.index == 2 %}runner{% else %}budget{% endif %}">
+      {% if loop.index <= 3 %}
+      <span class="quick-pick-badge">{% if loop.index == 1 %}Best Overall{% elif loop.index == 2 %}Runner Up{% else %}Best Value{% endif %}</span>
+      {% endif %}
+      {% if article.ogImage %}
+      <img src="{{ article.ogImage }}" alt="{{ article.title }}" class="quick-pick-image" loading="lazy">
+      {% endif %}
+      <h3 class="quick-pick-title">{{ article.title }}</h3>
+      <p class="quick-pick-desc">{{ article.excerpt }}</p>
+      <a href="{{ site.url }}/{{ article.category }}/{{ article.slug }}/" class="btn btn-primary quick-pick-cta">Read Guide →</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Categories -->
+<section id="categories" class="container" aria-labelledby="categories-heading">
+  <header style="margin-bottom: 2rem; text-align: center;">
+    <h2 id="categories-heading">Shop by Category</h2>
+    <p class="text-muted">Find the right gear for your space</p>
+  </header>
+  <div class="category-grid">
+    {% for cat in categories %}
+    <a href="{{ site.url }}/{{ cat.id }}/" class="category-card">
+      <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        {% if cat.id == 'dorm-essentials' %}
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+        {% elif cat.id == 'first-apartment' %}
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <path d="M9 22V12h6v10"/>
+        {% elif cat.id == 'tiny-kitchen' %}
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <path d="M9 22V12h6v10"/>
+        <path d="M5 16h14"/>
+        <path d="M5 12h14"/>
+        {% endif %}
+      </svg>
+      <h3>{{ cat.name }}</h3>
+      <p>{{ cat.description }}</p>
+      <p class="text-sm text-muted">{{ cat.articleCount }} guides</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Recent Articles -->
+{% if recentArticles.length > 0 %}
+<section class="container" aria-labelledby="recent-heading">
+  <header style="margin-bottom: 2rem; text-align: center;">
+    <h2 id="recent-heading">Latest Guides</h2>
+  </header>
+  <div class="category-grid">
+    {% for article in recentArticles %}
+    <a href="{{ site.url }}/{{ article.category }}/{{ article.slug }}/" class="category-card">
+      <h3>{{ article.title }}</h3>
+      <p>{{ article.excerpt }}</p>
+      <p class="text-sm text-muted">{{ article.categoryName }} • {{ formatDate(article.date) }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Newsletter -->
+<section class="newsletter" aria-labelledby="newsletter-heading">
+  <div class="container">
+    <div class="newsletter-content">
+      <h2 id="newsletter-heading">Get Smart Finds Weekly</h2>
+      <p>No spam. Just the best deals and guides for small spaces.</p>
+      <form class="newsletter-form" action="#" method="POST">
+        <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
+        <button type="submit" class="btn btn-accent">Subscribe</button>
+      </form>
+      <p class="text-sm" style="opacity: 0.7;">Unsubscribe anytime. See our <a href="{{ site.url }}/privacy/" style="color: inherit; text-decoration: underline;">Privacy Policy</a>.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

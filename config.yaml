@@ -1,0 +1,147 @@
+site:
+  name: "SpaceSmart Guide"
+  tagline: "Smart Gear for Small Spaces"
+  description: "Expert-tested dorm, apartment, and tiny kitchen essentials. Real reviews, honest prices, zero fluff."
+  url: "https://spacesmart-guide.com"
+  repo: "https://github.com/Tanix420/spacesmart-guide"
+  author: "SpaceSmart Team"
+  locale: "en_US"
+  timezone: "America/New_York"
+
+associates:
+  tag: "matnix-20"
+  onelink:
+    enabled: true
+    countries:
+      - { code: "US", tag: "matnix-20", domain: "amazon.com" }
+      - { code: "CA", tag: "matnix-20-ca", domain: "amazon.ca" }
+      - { code: "UK", tag: "matnix-20-uk", domain: "amazon.co.uk" }
+      - { code: "DE", tag: "matnix-20-de", domain: "amazon.de" }
+      - { code: "JP", tag: "matnix-20-jp", domain: "amazon.co.jp" }
+      - { code: "AU", tag: "matnix-20-au", domain: "amazon.com.au" }
+
+geniuslink:
+  enabled: false
+  api_key: ""  # Add via env var
+
+levanta:
+  enabled: false
+  api_key: ""  # Add via env var
+
+voice:
+  persona: "Senior RA who's seen it all"
+  tone: "practical, no-BS, money-saving"
+  avoid: ["fluff", "marketing speak", "fake enthusiasm", "exclamation marks"]
+  format: "scannable, tables first, specs upfront"
+  trust_signals: ["real Reddit quotes", "honest cons", "price history notes", "durability mentions"]
+  reading_level: "8th grade"
+  sentence_length: "short"
+  paragraph_length: "2-3 sentences max"
+
+content:
+  articles_per_category: 13
+  categories:
+    - id: "dorm-essentials"
+      name: "Dorm Essentials"
+      description: "Twin XL bedding, storage, study gear for campus living"
+      seed_keywords: ["dorm essentials", "college dorm must haves", "twin xl bedding", "dorm storage", "dorm room organization"]
+      target_audience: "College students, parents of freshmen"
+      price_range: "$10-150"
+      commission_tier: "3-4.5%"
+      voice_adjustment: "budget-conscious, durability-focused, move-in/move-out practical"
+    - id: "first-apartment"
+      name: "First Apartment"
+      description: "Kitchen, bath, living essentials for your first solo space"
+      seed_keywords: ["first apartment essentials", "apartment must haves", "kitchen essentials for first apartment", "bathroom essentials", "living room essentials"]
+      target_audience: "Recent grads, young professionals, first-time renters"
+      price_range: "$15-300"
+      commission_tier: "3-5%"
+      voice_adjustment: "investment-focused, versatile pieces, rental-friendly"
+    - id: "tiny-kitchen"
+      name: "Tiny Kitchen"
+      description: "Compact appliances, space-saving tools, small-batch cookware"
+      seed_keywords: ["small kitchen appliances", "compact kitchen gadgets", "tiny kitchen organization", "small space cooking", "apartment kitchen essentials"]
+      target_audience: "Studio dwellers, RV/van life, small home owners"
+      price_range: "$10-200"
+      commission_tier: "4.5% (Kitchen category)"
+      voice_adjustment: "function-per-square-inch, multi-use, easy cleanup"
+
+  article_types:
+    - type: "best-roundup"
+      template: "best-roundup.njk"
+      weight: 0.5
+      structure: ["intro", "quick-picks", "comparison-table", "detailed-reviews", "buying-guide", "faq", "conclusion"]
+    - type: "vs-comparison"
+      template: "vs-comparison.njk"
+      weight: 0.2
+      structure: ["intro", "quick-verdict", "spec-table", "deep-dive-a", "deep-dive-b", "when-to-choose", "faq"]
+    - type: "single-review"
+      template: "single-review.njk"
+      weight: 0.2
+      structure: ["verdict", "pros-cons", "specs", "performance", "alternatives", "faq"]
+    - type: "buying-guide"
+      template: "buying-guide.njk"
+      weight: 0.1
+      structure: ["intro", "key-factors", "top-picks", "what-to-avoid", "faq"]
+
+design:
+  colors:
+    primary: "#1a3c5e"
+    primary_light: "#2d5a8a"
+    accent: "#e8a838"
+    accent_hover: "#d4942a"
+    background: "#fafafa"
+    surface: "#ffffff"
+    text: "#1a1a2e"
+    text_muted: "#6b7280"
+    border: "#e5e7eb"
+    success: "#059669"
+    warning: "#d97706"
+    error: "#dc2626"
+  typography:
+    font_heading: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+    font_body: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+    font_mono: "'JetBrains Mono', monospace"
+    scale: 1.125
+  spacing:
+    unit: 8
+    container_max: "1200px"
+  border_radius: "8px"
+  shadows:
+    sm: "0 1px 2px rgba(0,0,0,0.05)"
+    md: "0 4px 6px rgba(0,0,0,0.07)"
+    lg: "0 10px 15px rgba(0,0,0,0.1)"
+
+seo:
+  default_image: "/assets/og-default.jpg"
+  twitter_handle: "@spacesmartguide"
+  schema:
+    organization:
+      name: "SpaceSmart Guide"
+      url: "https://spacesmart-guide.com"
+      logo: "https://spacesmart-guide.com/assets/logo.png"
+      same_as: []
+  sitemap:
+    enabled: true
+    changefreq: "weekly"
+    priority: 0.7
+
+performance:
+  image_optimization: true
+  lazy_load: true
+  critical_css: true
+  minify_html: true
+  minify_css: true
+  minify_js: true
+
+analytics:
+  ga4: ""  # Add via env var
+  search_console: ""  # Add via env var
+
+build:
+  output_dir: "public"
+  source_dir: "src"
+  data_dir: "data"
+  templates_dir: "templates"
+  assets_dir: "assets"
+  clean_output: true

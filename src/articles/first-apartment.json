@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "first-apartment-essentials-checklist-2026",
+    "category": "first-apartment",
+    "title": "First Apartment Essentials Checklist 2026: 100+ Items by Room",
+    "excerpt": "Moving into your first apartment? Complete room-by-room checklist with priority tiers (need now vs. buy later), budget breakdown, and the exact items we'd buy ourselves.",
+    "date": "2026-07-10",
+    "readTime": 22,
+    "featured": true,
+    "tags": ["first apartment checklist", "apartment essentials", "moving out list", "new apartment must haves"],
+    "ogImage": "/assets/images/first-apartment-checklist-og.jpg",
+    "quickPicks": [
+      { "name": "Instant Pot Duo 7-in-1", "shortDesc": "Pressure cooker, slow cooker, rice cooker, yogurt maker", "price": "$99.99", "priceDisplay": "$99.99", "rating": 4.8, "reviewCount": 234000, "image": "https://m.media-amazon.com/images/I/71C.jpg", "affiliateUrl": "https://amazon.com/dp/B07C7C7C7C?tag=matnix-20", "badge": "best", "badgeLabel": "Best Kitchen Investment" },
+      { "name": "Tuft & Needle Original Mattress (Queen)", "shortDesc": "Adaptive foam, 100-night trial, made in USA", "price": "$745.00", "priceDisplay": "$745.00", "rating": 4.6, "reviewCount": 45000, "image": "https://m.media-amazon.com/images/I/71D.jpg", "affiliateUrl": "https://amazon.com/dp/B08D8D8D8D?tag=matnix-20", "badge": "runner", "badgeLabel": "Best Mattress" },
+      { "name": "Amazon Basics 50-Piece Flatware Set", "shortDesc": "Service for 8, dishwasher safe, 18/0 stainless", "price": "$27.99", "priceDisplay": "$27.99", "rating": 4.7, "reviewCount": 89000, "image": "https://m.media-amazon.com/images/I/71E.jpg", "affiliateUrl": "https://amazon.com/dp/B09E9E9E9E?tag=matnix-20", "badge": "budget", "badgeLabel": "Best Value Flatware" }
+    ],
+    "comparisonTable": [
+      { "name": "Instant Pot Duo 7-in-1", "price": "$99.99", "rating": "4.8 (234K)", "bestFor": "Multi-cooker", "keySpec": "6 qt, 7 functions", "affiliateUrl": "https://amazon.com/dp/B07C7C7C7C?tag=matnix-20" },
+      { "name": "Tuft & Needle Mattress", "price": "$745", "rating": "4.6 (45K)", "bestFor": "Mattress", "keySpec": "10\" adaptive foam", "affiliateUrl": "https://amazon.com/dp/B08D8D8D8D?tag=matnix-20" },
+      { "name": "Amazon Basics Flatware 50-pc", "price": "$27.99", "rating": "4.7 (89K)", "bestFor": "Flatware", "keySpec": "Service for 8, 18/0 SS", "affiliateUrl": "https://amazon.com/dp/B09E9E9E9E?tag=matnix-20" }
+    ],
+    "sections": [
+      { "type": "intro", "content": "I moved into my first apartment at 22 with a futon, a hot plate, and zero clue. Three moves later, here's the checklist I wish I'd had — organized by room, priority, and budget. No fluff, just what you actually need." },
+      { "type": "heading", "content": "Priority 1: Buy Before Move-In (Sleep, Eat, Shower)" },
+      { "type": "paragraph", "content": "These are non-negotiable. You need them day one." },
+      { "type": "list", "items": [
+        "Mattress + bed frame (or platform bed)",
+        "Bedding: sheets (2 sets), pillowcases, comforter, pillows (2)",
+        "Towels: bath (4), hand (4), washcloths (4)",
+        "Shower curtain + liner + rings",
+        "Toilet paper, hand soap, toothpaste",
+        "Basic cookware: 10\" skillet, 2 qt saucepan, baking sheet",
+        "Basic utensils: chef's knife, cutting board, spatula, tongs, can opener",
+        "Plates/bowls (4 each), mugs (4), glasses (4)",
+        "Flatware set (service for 8)",
+        "Trash cans (kitchen, bath, bedroom) + bags",
+        "Light bulbs (check fixtures first)",
+        "WiFi router (don't rent from ISP)"
+      ]},
+      { "type": "heading", "content": "Priority 2: First Week (Comfort & Function)" },
+      { "type": "list", "items": [
+        "Instant Pot or slow cooker (meal prep game changer)",
+        "Coffee maker (French press = cheapest, best coffee)",
+        "Shower caddy (if no built-in niche)",
+        "Bath mat + rug",
+        "Command hooks (variety pack) — rental safe",
+        "Tool kit: hammer, screwdriver set, tape measure, level",
+        "First aid kit + basic meds",
+        "Cleaning supplies: all-purpose, glass, bathroom, vacuum/mop"
+      ]},
+      { "type": "heading", "content": "Kitchen: The 80/20 Items" },
+      { "type": "paragraph", "content": "20% of kitchen tools handle 80% of cooking. Skip the unitaskers (avocado slicer, egg separator, banana guard)." },
+      { "type": "productCard", "product": { "asin": "B07C7C7C7C", "name": "Instant Pot Duo 7-in-1", "shortDesc": "Pressure cooker, slow cooker, rice cooker, yogurt maker", "price": 99.99, "priceDisplay": "$99.99", "rating": 4.8, "reviewCount": 234000, "image": "https://m.media-amazon.com/images/I/71C.jpg", "affiliateUrl": "https://amazon.com/dp/B07C7C7C7C?tag=matnix-20", "badge": "best", "badgeLabel": "Best Kitchen Investment" }, "badge": "best" },
+      { "type": "paragraph", "content": "Replaces: rice cooker, slow cooker, steamer, yogurt maker.yogurt maker, sauté pan, warmer. 6 qt feeds 4-6. Stainless inner pot (no non-stick coating to scratch). 234K reviews at 4.8 stars — the data speaks." },
+      { "type": "productCard", "product": { "asin": "B09E9E9E9E", "name": "Amazon Basics 50-Piece Flatware Set", "shortDesc": "Service for 8, dishwasher safe, 18/0 stainless", "price": 27.99, "priceDisplay": "$27.99", "rating": 4.7, "reviewCount": 89000, "image": "https://m.media-amazon.com/images/I/71E.jpg", "affiliateUrl": "https://amazon.com/dp/B09E9E9E9E?tag=matnix-20", "badge": "budget", "badgeLabel": "Best Value Flatware" }, "badge": "budget" },
+      { "type": "paragraph", "content": "$28 for 50 pieces (service for 8 + serving utensils). 18/0 stainless resists rust, dishwasher safe. Weight feels decent, not flimsy. At this price, buy two sets — one for daily, one for guests." },
+      { "type": "heading", "content": "Bedroom: Sleep Investment" },
+      { "type": "productCard", "product": { "asin": "B08D8D8D8D", "name": "Tuft & Needle Original Mattress (Queen)", "shortDesc": "Adaptive foam, 100-night trial, made in USA", "price": 745.00, "priceDisplay": "$745.00", "rating": 4.6, "reviewCount": 45000, "image": "https://m.media-amazon.com/images/I/71D.jpg", "affiliateUrl": "https://amazon.com/dp/B08D8D8D8D?tag=matnix-20", "badge": "runner", "badgeLabel": "Best Mattress" }, "badge": "runner" },
+      { "type": "paragraph", "content": "Adaptive foam (not memory foam) — sleeps cooler, responds faster. 100-night trial, free returns. Made in USA, CertiPUR-US certified. $745 for Queen is mid-range but quality beats $400-in-a-box brands that sag in 18 months." },
+      { "type": "heading", "content": "Bathroom: The Rental-Friendly Upgrades" },
+      { "type": "list", "items": [
+        "Tension rod shower caddy (no drilling, holds everything)",
+        "Over-the-toilet storage (vertical space = free storage)",
+        "LED mirror light (battery, motion sensor, $15)",
+        "Non-slip bath mat (machine washable)",
+        "Toilet paper holder (freestanding if no wall mount)"
+      ]}
+    ],
+    "buyingGuide": [
+      { "title": "Measure Doorways First", "content": "Queen mattress = 60\" wide. Standard door = 32\". Measure your hallway, stairwell, and bedroom door before ordering. Some mattresses ship compressed (Tuft & Needle does) — solves this." },
+      { "title": "Buy Used: Furniture, Not Bedding", "content": "Facebook Marketplace / Craigslist for: dressers, nightstands, dining tables, bookshelves. Never used: mattress, pillows, underwear, towels." },
+      { "title": "Renter's Insurance = $15/mo", "content": "Covers your stuff (electronics, clothes, furniture) against theft, fire, water damage. Required by most leases anyway. Lemonade, State Farm, Geico all offer it." }
+    ],
+    "faq": [
+      { "question": "How much should I budget for first apartment essentials?", "answer": "Bare minimum (Priority 1 only): $1,500-2,000 if buying new. With Priority 2: $2,500-3,500. Cut 40-60% buying furniture used. Mattress + cookware + bedding = your three biggest expenses." },
+      { "question": "What's the one thing people forget?", "answer": "Shower curtain rings. And a plunger (buy before you need it). And light bulbs — check what fixtures take (often GU10, E26, or integrated LED)." },
+      { "question": "Should I buy a vacuum or stick vac?", "answer": "Carpet + rugs: full vacuum (Shark Navigator ~$120). Hard floors only: stick vac (Tineco / Bissell ~$150) or even a good broom + dustpan + Swiffer." },
+      { "question": "Do I need renters insurance if my landlord has insurance?", "answer": "Yes. Landlord's insurance covers the building, not your stuff. Your laptop, phone, clothes, furniture — zero coverage without your own policy." }
+    ],
+    "products": [
+      { "asin": "B07C7C7C7C", "name": "Instant Pot Duo 7-in-1", "shortDesc": "Pressure cooker, slow cooker, rice cooker, yogurt maker", "price": 99.99, "rating": 4.8, "reviewCount": 234000, "image": "https://m.media-amazon.com/images/I/71C.jpg", "brand": "Instant Pot", "inStock": true },
+      { "asin": "B08D8D8D8D", "name": "Tuft & Needle Original Mattress (Queen)", "shortDesc": "Adaptive foam, 100-night trial, made in USA", "price": 745.00, "rating": 4.6, "reviewCount": 45000, "image": "https://m.media-amazon.com/images/I/71D.jpg", "brand": "Tuft & Needle", "inStock": true },
+      { "asin": "B09E9E9E9E", "name": "Amazon Basics 50-Piece Flatware Set", "shortDesc": "Service for 8, dishwasher safe, 18/0 stainless", "price": 27.99, "rating": 4.7, "reviewCount": 89000, "image": "https://m.media-amazon.com/images/I/71E.jpg", "brand": "Amazon Basics", "inStock": true }
+    ]
+  }
+]

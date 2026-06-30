@@ -1,0 +1,207 @@
+{% extends "layout.njk" %}
+
+{% block structuredData %}
+<script type="application/ld+json">{{ articleSchema | safe }}</script>
+<script type="application/ld+json">{{ breadcrumbSchema | safe }}</script>
+{% for productSchema in productSchemas %}
+<script type="application/ld+json">{{ productSchema | safe }}</script>
+{% endfor %}
+{% if faqSchema %}
+<script type="application/ld+json">{{ faqSchema | safe }}</script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<article class="article-page" itemscope itemtype="https://schema.org/Article">
+  <!-- Disclosure -->
+  <div class="container">
+    <div class="disclosure">
+      <strong>Disclosure:</strong> As an Amazon Associate we earn from qualifying purchases. This post contains affiliate links. If you click through and make a purchase, we may earn a commission at no extra cost to you.
+    </div>
+  </div>
+
+  <!-- Article Header -->
+  <header class="article-header container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ site.url }}/">Home</a>
+      <span class="separator">/</span>
+      <a href="{{ site.url }}/{{ article.category }}/">{{ article.categoryName }}</a>
+      <span class="separator">/</span>
+      <span class="current">{{ article.title }}</span>
+    </nav>
+
+    <div class="article-meta">
+      <span class="article-category">{{ article.categoryName }}</span>
+      {% if article.updated %}
+      <time datetime="{{ article.updated }}">Updated {{ formatDate(article.updated) }}</time>
+      {% else %}
+      <time datetime="{{ article.date }}">{{ formatDate(article.date) }}</time>
+      {% endif %}
+      {% if article.readTime %}<span>{{ article.readTime }} min read</span>{% endif %}
+    </div>
+
+    <h1 itemprop="headline">{{ article.title }}</h1>
+
+    {% if article.excerpt %}
+    <p class="article-intro" itemprop="description">{{ article.excerpt }}</p>
+    {% endif %}
+  </header>
+
+  <!-- Quick Picks -->
+  {% if article.quickPicks %}
+  <section class="container" aria-labelledby="quick-picks-heading">
+    <h2 id="quick-picks-heading" style="margin-bottom: 1.5rem;">Quick Picks</h2>
+    <div class="quick-picks">
+      {% for pick in article.quickPicks %}
+      <article class="quick-pick-card {{ pick.badge }}">
+        <span class="quick-pick-badge">{{ pick.badgeLabel }}</span>
+        {% if pick.image %}
+        <img src="{{ pick.image }}" alt="{{ pick.name }}" class="quick-pick-image" loading="lazy">
+        {% endif %}
+        <h3 class="quick-pick-title">{{ pick.name }}</h3>
+        <p class="quick-pick-desc">{{ pick.shortDesc }}</p>
+        <div class="quick-pick-price">{{ pick.price }}</div>
+        <a href="{{ pick.affiliateUrl }}" class="btn btn-primary quick-pick-cta" target="_blank" rel="noopener sponsored">Check Price →</a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Comparison Table -->
+  {% if article.comparisonTable %}
+  <section class="container" aria-labelledby="comparison-heading">
+    <h2 id="comparison-heading" style="margin-bottom: 1rem;">Comparison Table</h2>
+    <div class="table-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Best For</th>
+            <th>Key Spec</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in article.comparisonTable %}
+          <tr>
+            <td class="product-name">{{ product.name }}</td>
+            <td class="price">{{ product.price }}</td>
+            <td class="rating">{{ product.rating }}★ ({{ product.reviewCount }})</td>
+            <td>{{ product.bestFor }}</td>
+            <td>{{ product.keySpec }}</td>
+            <td class="cta-cell">
+              <a href="{{ product.affiliateUrl }}" class="btn btn-primary btn-sm" target="_blank" rel="noopener sponsored">Check Price</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Article Body -->
+  <div class="container">
+    <div class="article-body" itemprop="articleBody">
+      {% for section in article.sections %}
+      {% if section.type === 'intro' %}
+      <div class="article-intro">{{ section.content | markdown }}</div>
+      {% elif section.type === 'heading' %}
+      <h2>{{ section.content }}</h2>
+      {% elif section.type === 'subheading' %}
+      <h3>{{ section.content }}</h3>
+      {% elif section.type === 'paragraph' %}
+      <p>{{ section.content | markdown }}</p>
+      {% elif section.type === 'productCard' %}
+      {% set product = section.product %}
+      {% set badge = section.badge %}
+      {% include "partials/product-card.njk" %}
+      {% elif section.type === 'prosCons' %}
+      <div class="pros-cons">
+        <div class="pros-cons-list pros">
+          <h4 class="pros-cons-title">✓ Pros</h4>
+          <ul>
+            {% for pro in section.pros %}<li>{{ pro }}</li>{% endfor %}
+          </ul>
+        </div>
+        <div class="pros-cons-list cons">
+          <h4 class="pros-cons-title">✕ Cons</h4>
+          <ul>
+            {% for con in section.cons %}<li>{{ con }}</li>{% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% elif section.type === 'alert' %}
+      <div class="alert alert-{{ section.level }}">{{ section.content }}</div>
+      {% elif section.type === 'blockquote' %}
+      <blockquote>{{ section.content }}</blockquote>
+      {% elif section.type === 'list' %}
+      <ul>
+        {% for item in section.items %}<li>{{ item | markdown }}</li>{% endfor %}
+      </ul>
+      {% elif section.type === 'numberedList' %}
+      <ol>
+        {% for item in section.items %}<li>{{ item | markdown }}</li>{% endfor %}
+      </ol>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Buying Guide -->
+    {% if article.buyingGuide %}
+    <section style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+      <h2>Buying Guide: What to Look For</h2>
+      <div class="article-body">
+        {% for factor in article.buyingGuide %}
+        <h3>{{ factor.title }}</h3>
+        <p>{{ factor.content }}</p>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- FAQ -->
+    {% if article.faq %}
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Frequently Asked Questions</h2>
+      {% for item in article.faq %}
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-{{ loop.index }}" itemprop="name">
+          {{ item.question }}
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="faq-answer" id="faq-answer-{{ loop.index }}" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <div class="faq-answer-inner" itemprop="text">{{ item.answer | markdown }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    <!-- Related Articles -->
+    {% if relatedArticles.length > 0 %}
+    <section style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+      <h2>Related Guides</h2>
+      <div class="category-grid">
+        {% for related in relatedArticles %}
+        <a href="{{ site.url }}/{{ related.category }}/{{ related.slug }}/" class="category-card">
+          <h3>{{ related.title }}</h3>
+          <p>{{ related.excerpt }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- Final Disclosure -->
+    <div class="disclosure" style="margin-top: 3rem;">
+      <strong>Affiliate Disclosure:</strong> {{ site.name }} is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. We also participate in other affiliate programs. This means we may earn a commission if you click through and make a purchase, at no additional cost to you.
+    </div>
+  </div>
+</article>
+{% endblock %}
