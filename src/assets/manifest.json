@@ -1,0 +1,27 @@
+{
+  "name": "SpaceSmart Guide",
+  "short_name": "SpaceSmart",
+  "description": "Expert-tested dorm, apartment, and tiny kitchen essentials. Real reviews, honest prices, zero fluff.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#1a3c5e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "lifestyle", "education"],
+  "lang": "en-US",
+  "dir": "ltr"
+}
