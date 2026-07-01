@@ -484,6 +484,47 @@ Crawl-delay: 10`;
   writeFile(path.join(OUTPUT_DIR, 'robots.txt'), content);
 }
 
+function build404Page() {
+  console.log('[Build] Building 404 page...');
+  const html = renderTemplate('404.njk', {
+    page: {
+      title: 'Page Not Found',
+      description: 'Sorry, we couldn\'t find that page. Try searching or browsing our categories.',
+      canonicalUrl: config.site.url + '/404/'
+    }
+  });
+  writeFile(path.join(OUTPUT_DIR, '404.html'), html);
+}
+
+function buildSearchPage() {
+  console.log('[Build] Building search page...');
+  
+  // Load all articles for search index
+  const articles = getAllArticles();
+  const searchIndex = articles.map(a => ({
+    title: a.title,
+    excerpt: a.excerpt,
+    url: `${config.site.url}/${a.category}/${a.slug}/`,
+    categoryName: config.content.categories.find(c => c.id === a.category)?.name || a.category,
+    tags: a.tags || [],
+    ogImage: a.ogImage,
+    readTime: a.readTime
+  }));
+  
+  // Write search index JSON
+  writeFile(path.join(OUTPUT_DIR, 'search-index.json'), JSON.stringify(searchIndex));
+  
+  // Render search page
+  const html = renderTemplate('search.njk', {
+    page: {
+      title: 'Search Guides',
+      description: 'Search all SpaceSmart Guide articles and products',
+      canonicalUrl: config.site.url + '/search/'
+    }
+  });
+  writeFile(path.join(OUTPUT_DIR, 'search', 'index.html'), html);
+}
+
 // ========================================
 // MAIN BUILD
 // ========================================
@@ -505,6 +546,8 @@ async function build() {
     buildHomePage(articles);
     buildCategoryPages(articles);
     buildArticlePages(articles);
+    build404Page();
+    buildSearchPage();
     buildSitemap(articles);
     buildRobotsTxt();
 

@@ -1,0 +1,149 @@
+{% extends "layout.njk" %}
+
+{% set page = {
+  title: "Search Guides",
+  description: "Search all SpaceSmart Guide articles and products",
+  canonicalUrl: site.url + "/search/"
+} %}
+
+{% block content %}
+<section class="container">
+  <header style="text-align: center; margin-bottom: 3rem;">
+    <h1>Search Guides & Products</h1>
+    <p class="text-muted" style="font-size: 1.125rem;">Find exactly what you need for your space</p>
+  </header>
+
+  <form class="search-form" id="search-form" role="search">
+    <label for="search-input" class="sr-only">Search guides and products</label>
+    <input 
+      type="search" 
+      id="search-input" 
+      class="search-input" 
+      placeholder="Search dorm essentials, apartment gear, tiny kitchen tools..."
+      autocomplete="off"
+      aria-label="Search guides and products"
+    >
+    <button type="submit" class="btn btn-primary search-btn">Search</button>
+  </form>
+
+  <div id="search-results" class="search-results" style="margin-top: 2rem;"></div>
+
+  <div id="search-suggestions" class="search-suggestions" style="margin-top: 2rem;"></div>
+</section>
+
+<script>
+(function() {
+  'use strict';
+
+  let searchIndex = null;
+  let debounceTimer = null;
+
+  // Load search index
+  async function loadSearchIndex() {
+    try {
+      const response = await fetch('/search-index.json');
+      if (response.ok) {
+        searchIndex = await response.json();
+        showSuggestions();
+      }
+    } catch (e) {
+      console.warn('Search index not available:', e);
+    }
+  }
+
+  function showSuggestions() {
+    if (!searchIndex) return;
+    const suggestions = document.getElementById('search-suggestions');
+    const categories = [...new Set(searchIndex.map(item => item.categoryName))];
+    suggestions.innerHTML = `
+      <h3>Browse by Category</h3>
+      <div class="category-grid">
+        ${categories.map(cat => {
+          const count = searchIndex.filter(i => i.categoryName === cat).length;
+          return `<a href="/${cat.toLowerCase().replace(/\s+/g, '-')}/" class="category-card">
+            <h3>${cat}</h3>
+            <p>${count} guides</p>
+          </a>`;
+        }).join('')}
+      </div>
+    `;
+  }
+
+  function performSearch(query) {
+    if (!searchIndex || !query.trim()) {
+      document.getElementById('search-results').innerHTML = '';
+      showSuggestions();
+      return;
+    }
+
+    const results = searchIndex
+      .map(item => {
+        const titleMatch = item.title.toLowerCase().includes(query);
+        const excerptMatch = item.excerpt.toLowerCase().includes(query);
+        const tagMatch = item.tags?.some(t => t.toLowerCase().includes(query));
+        const score = (titleMatch ? 10 : 0) + (excerptMatch ? 5 : 0) + (tagMatch ? 3 : 0);
+        return { ...item, score };
+      })
+      .filter(item => item.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 20);
+
+    renderResults(results, query);
+  }
+
+  function renderResults(results, query) {
+    const container = document.getElementById('search-results');
+    const suggestions = document.getElementById('search-suggestions');
+    suggestions.innerHTML = '';
+
+    if (results.length === 0) {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 3rem;">
+          <h3>No results for "${query}"</h3>
+          <p class="text-muted">Try different keywords or browse our categories below.</p>
+        </div>
+      `;
+      showSuggestions();
+      return;
+    }
+
+    container.innerHTML = `
+      <h3 style="margin-bottom: 1.5rem;">${results.length} result${results.length !== 1 ? 's' : ''} for "${query}"</h3>
+      <div class="category-grid">
+        ${results.map(item => `
+          <a href="${item.url}" class="category-card">
+            ${item.ogImage ? `<img src="${item.ogImage}" alt="" class="category-card-image" loading="lazy" style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: 1rem;">` : ''}
+            <h3>${highlightMatch(item.title, query)}</h3>
+            <p>${highlightMatch(item.excerpt, query)}</p>
+            <p class="text-sm text-muted">${item.categoryName} • ${item.readTime || '5'} min read</p>
+          </a>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  function highlightMatch(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return text.replace(regex, '<mark style="background: var(--color-accent); padding: 0 2px; border-radius: 2px;">$1</mark>');
+  }
+
+  // Event listeners
+  const input = document.getElementById('search-input');
+  const form = document.getElementById('search-form');
+
+  input.addEventListener('input', function() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => performSearch(this.value.trim()), 150);
+  });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    performSearch(input.value.trim());
+  });
+
+  // Load index on page load
+  loadSearchIndex();
+})();
+</script>
+{% endblock %}
