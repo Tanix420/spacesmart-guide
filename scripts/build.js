@@ -43,6 +43,12 @@ const env = nunjucks.configure([TEMPLATES_DIR, path.join(TEMPLATES_DIR, 'partial
 env.addGlobal('config', config);
 env.addGlobal('site', config.site);
 env.addGlobal('associates', config.associates);
+env.addGlobal('voice', config.voice);
+env.addGlobal('content', config.content);
+env.addGlobal('design', config.design);
+env.addGlobal('seo', config.seo);
+env.addGlobal('analytics', config.analytics);
+env.addGlobal('performance', config.performance);
 env.addGlobal('now', new Date());
 env.addGlobal('formatDate', (date, fmt = 'MMMM d, yyyy') => {
   if (!date) return '';
@@ -484,6 +490,31 @@ Crawl-delay: 10`;
   writeFile(path.join(OUTPUT_DIR, 'robots.txt'), content);
 }
 
+function buildStaticPages() {
+  console.log('[Build] Building static pages...');
+  
+  const staticPages = [
+    { template: 'about.njk', output: 'about/index.html', title: 'About SpaceSmart Guide', description: 'Learn about our mission, methodology, and the team behind SpaceSmart Guide - expert-tested gear for small spaces.' },
+    { template: 'methodology.njk', output: 'methodology/index.html', title: 'Our Methodology', description: 'How SpaceSmart Guide tests, evaluates, and recommends gear for dorms, apartments, and tiny kitchens.' },
+    { template: 'contact.njk', output: 'contact/index.html', title: 'Contact Us', description: 'Get in touch with SpaceSmart Guide - questions, corrections, product suggestions, or partnership inquiries.' },
+    { template: 'privacy.njk', output: 'privacy/index.html', title: 'Privacy Policy', description: 'SpaceSmart Guide privacy policy - how we collect, use, and protect your data.' },
+    { template: 'disclosure.njk', output: 'disclosure/index.html', title: 'Affiliate Disclosure', description: 'SpaceSmart Guide affiliate disclosure - how we earn from qualifying purchases.' },
+    { template: 'terms.njk', output: 'terms/index.html', title: 'Terms of Service', description: 'SpaceSmart Guide terms of service.' }
+  ];
+
+  for (const page of staticPages) {
+    const html = renderTemplate(page.template, {
+      page: {
+        title: page.title,
+        description: page.description,
+        canonicalUrl: config.site.url + '/' + page.output.replace('index.html', ''),
+        ogImage: config.seo.default_image
+      }
+    });
+    writeFile(path.join(OUTPUT_DIR, page.output), html);
+  }
+}
+
 function build404Page() {
   console.log('[Build] Building 404 page...');
   const html = renderTemplate('404.njk', {
@@ -546,6 +577,7 @@ async function build() {
     buildHomePage(articles);
     buildCategoryPages(articles);
     buildArticlePages(articles);
+    buildStaticPages();
     build404Page();
     buildSearchPage();
     buildSitemap(articles);

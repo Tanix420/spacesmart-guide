@@ -1,0 +1,72 @@
+{% extends "layout.njk" %}
+
+{% set page = {
+  title: "About SpaceSmart Guide",
+  description: "Learn about our mission, methodology, and the team behind SpaceSmart Guide - expert-tested gear for small spaces.",
+  canonicalUrl: site.url + "/about/",
+  ogImage: seo.default_image
+} %}
+
+{% block content %}
+<section class="container" style="max-width: 800px;">
+  <header style="text-align: center; margin-bottom: 3rem; padding-top: 2rem;">
+    <h1>About SpaceSmart Guide</h1>
+    <p class="text-muted" style="font-size: 1.25rem;"><strong>{{ site.tagline }}</strong></p>
+  </header>
+
+  <article class="article-body">
+    <h2>Our Mission</h2>
+    <p>
+      Small spaces deserve smart gear. Whether you're moving into a dorm, your first apartment, or optimizing a tiny kitchen, 
+      you shouldn't waste money on products that don't fit, don't last, or don't work.
+    </p>
+    <p>
+      SpaceSmart Guide exists to cut through the noise. We test, research, and recommend only the essentials that earn their 
+      square footage — so you can focus on living, not shopping.
+    </p>
+
+    <h2>What Makes Us Different</h2>
+    <ul>
+      <li><strong>No fluff.</strong> No "100 dorm essentials" lists. We recommend 3-5 products per category that actually work.</li>
+      <li><strong>Real testing.</strong> We sleep on the mattresses, cook with the appliances, live with the organizers.</li>
+      <li><strong>Reddit-verified.</strong> We cross-reference every pick with what actual students and renters say on r/dorm, r/firstapartment, r/tinykitchen.</li>
+      <li><strong>Money-saving focus.</strong> We tell you what to skip, what to buy used, and where the value really is.</li>
+      <li><strong>Transparent affiliate model.</strong> We earn when you buy — so we only win if you're happy.</li>
+    </ul>
+
+    <h2>Our Categories</h2>
+    <ul>
+      <li><strong>Dorm Essentials</strong> — Twin XL bedding, vertical storage, study gear, communal kitchen basics</li>
+      <li><strong>First Apartment</strong> — Kitchen, bath, living essentials for your first solo space</li>
+      <li><strong>Tiny Kitchen</strong> — Compact appliances, space-saving tools, small-batch cookware</li>
+    </ul>
+
+    <h2>The Voice</h2>
+    <p><em>{{ voice.persona }}</em></p>
+    <p>{{ voice.tone }}</p>
+    <p>We avoid: {{ voice.avoid | join(', ') }}</p>
+
+    <h2>Trust Signals</h2>
+    <ul>
+      {% for signal in voice.trust_signals %}
+      <li>{{ signal }}</li>
+      {% endfor %}
+    </ul>
+
+    <h2>Affiliate Model</h2>
+    <p>
+      We're an Amazon Associate (tag: <code>{{ associates.tag }}</code>) and participate in OneLink for 
+      {{ associates.onelink.countries.length }} countries. When you click our links and buy, we earn a commission 
+      at no extra cost to you. This funds the testing, writing, and hosting — but never influences our picks.
+    </p>
+    <p><a href="{{ site.url }}/disclosure/">Full Affiliate Disclosure &rarr;</a></p>
+
+    <h2>Methodology</h2>
+    <p>Our testing rubric, scoring system, and update cadence are documented publicly.</p>
+    <p><a href="{{ site.url }}/methodology/">Read Our Methodology &rarr;</a></p>
+
+    <h2>Open Source</h2>
+    <p>This entire site engine is open source and built for affiliate publishers who want speed, SEO, and honesty.</    <p><a href="{{ site.repo }}">View on GitHub &rarr;</a></p>
+  </article>
+</section>
+{% endblock %}

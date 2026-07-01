@@ -1,0 +1,61 @@
+{% extends "layout.njk" %}
+
+{% set page = {
+  title: "Terms of Service",
+  description: "SpaceSmart Guide terms of service - your use of our site and content.",
+  canonicalUrl: site.url + "/terms/",
+  ogImage: seo.default_image
+} %}
+
+{% block content %}
+<section class="container" style="max-width: 800px;">
+  <header style="text-align: center; margin-bottom: 3rem; padding-top: 2rem;">
+    <h1>Terms of Service</h1>
+    <p class="text-muted" style="font-size: 1.25rem;">Last updated: {{ formatDate(now) }}</p>
+  </header>
+
+  <article class="article-body">
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing and using <strong>{{ site.name }}</strong> (the "Site"), you agree to these Terms of Service. If you disagree, please do not use the Site.</p>
+
+    <h2>2. Use of Content</h2>
+    <p>All content on this Site (articles, reviews, images, schemas, code) is owned by SpaceSmart Guide or used under license. You may:</p>
+    <ul>
+      <li>Read and share articles for personal, non-commercial use</li>
+      <li>Link to our content with attribution</li>
+    </ul>
+    <p>You may not: copy full articles, republish content, scrape data, or use our content for commercial purposes without written permission.</p>
+
+    <h2>3. Affiliate Links & Recommendations</h2>
+    <p>The Site contains affiliate links (primarily Amazon Associates). When you click and purchase, we may earn a commission. This does not affect your price. See our <a href="{{ site.url }}/disclosure/">Affiliate Disclosure</a> for details.</p>
+    <p>Recommendations are based on independent testing and research. We are not agents of Amazon or any brand.</p>
+
+    <h2>4. No Professional Advice</h2>
+    <p>Content is for informational purposes only and does not constitute professional, financial, legal, or safety advice. Always verify specifications, safety ratings, and suitability for your specific situation.</p>
+
+    <h2>5. Accuracy & Updates</h2>
+    <p>We strive for accuracy but cannot guarantee prices, availability, specifications, or product performance. Information may be outdated. Always verify on the merchant site before purchasing.</p>
+
+    <h2>6. User Conduct</h2>
+    <p>You agree not to: scrape, crawl, or extract data; interfere with site security; post spam or harmful content; impersonate others; or violate any laws.</p>
+
+    <h2>7. Disclaimer of Warranties</h2>
+    <p>THE SITE IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+
+    <h2>8. Limitation of Liability</h2>
+    <p>IN NO EVENT SHALL SPACESMART GUIDE BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOST PROFITS OR DATA, ARISING FROM YOUR USE OF THE SITE.</p>
+
+    <h2>9. Indemnification</h2>
+    <p>You agree to indemnify SpaceSmart Guide from claims arising from your misuse of the Site, violation of these Terms, or infringement of intellectual property.</p>
+
+    <h2>10. Governing Law</h2>
+    <p>These Terms are governed by the laws of the State of New York, USA, without regard to conflict of law principles.</p>
+
+    <h2>11. Changes</h2>
+    <p>We may update these Terms at any time. Continued use constitutes acceptance. Material changes will be noted on this page.</p>
+
+    <h2>12. Contact</h2>
+    <p>Questions about these Terms? Email <a href="mailto:legal@spacesmartguide.com">legal@spacesmartguide.com</a>.</p>
+  </article>
+</section>
+{% endblock %}

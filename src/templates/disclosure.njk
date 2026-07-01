@@ -1,0 +1,63 @@
+{% extends "layout.njk" %}
+
+{% set page = {
+  title: "Affiliate Disclosure",
+  description: "SpaceSmart Guide affiliate disclosure - how we earn from qualifying purchases.",
+  canonicalUrl: site.url + "/disclosure/",
+  ogImage: seo.default_image
+} %}
+
+{% block content %}
+<section class="container" style="max-width: 800px;">
+  <header style="text-align: center; margin-bottom: 3rem; padding-top: 2rem;">
+    <h1>Affiliate Disclosure</h1>
+    <p class="text-muted" style="font-size: 1.25rem;">Transparency about how we earn</p>
+  </header>
+
+  <article class="article-body">
+    <h2>Amazon Associates Program</h2>
+    <p>
+      SpaceSmart Guide is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program 
+      designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.
+    </p>
+
+    <h2>OneLink (International)</h2>
+    <p>
+      We use Amazon OneLink to automatically redirect international visitors to their local Amazon storefront:
+    </p>
+    <ul>
+      <li>United States: Amazon.com (tag: <code>matnix-20</code>)</li>
+      <li>Canada: Amazon.ca (tag: <code>matnix-20-ca</code>)</li>
+      <li>United Kingdom: Amazon.co.uk (tag: <code>matnix-20-uk</code>)</li>
+      <li>Germany: Amazon.de (tag: <code>matnix-20-de</code>)</li>
+      <li>Japan: Amazon.co.jp (tag: <code>matnix-20-jp</code>)</li>
+      <li>Australia: Amazon.com.au (tag: <code>matnix-20-au</code>)</li>
+    </ul>
+
+    <h2>What This Means for You</h2>
+    <ul>
+      <li><strong>No extra cost.</strong> You pay the same price whether you click our link or go directly to Amazon.</li>
+      <li><strong>We earn a commission.</strong> Typically 1-4.5% depending on product category.</li>
+      <li><strong>Independence.</strong> We do not accept free products, sponsorships, or paid placements. We buy or research what we recommend.</li>
+      <li><strong>Honest reviews.</strong> We include "Cons" sections. We tell you what to skip.</li>
+    </ul>
+
+    <h2>Other Affiliate Programs</h2>
+    <p>
+      We may participate in additional affiliate programs (Geniuslink, Levanta, etc.) in the future. 
+      This page will be updated to reflect any new partnerships.
+    </p>
+
+    <h2>Editorial Independence</h2>
+    <p>
+      Our recommendations are based on testing, research, and community feedback — never on commission rates.
+      Products we don't like don't make the guide, regardless of affiliate potential.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about our affiliate practices? Email <a href="mailto:disclosure@spacesmartguide.com">disclosure@spacesmartguide.com</a>.
+    </p>
+  </article>
+</section>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends "layout.njk" %}
+
+{% set page = {
+  title: "Our Methodology",
+  description: "How SpaceSmart Guide tests, evaluates, and recommends gear for dorms, apartments, and tiny kitchens.",
+  canonicalUrl: site.url + "/methodology/",
+  ogImage: seo.default_image
+} %}
+
+{% block content %}
+<section class="container" style="max-width: 800px;">
+  <header style="text-align: center; margin-bottom: 3rem; padding-top: 2rem;">
+    <h1>Our Methodology</h1>
+    <p class="text-muted" style="font-size: 1.25rem;">How we separate the essentials from the junk</p>
+  </header>
+
+  <article class="article-body">
+    <h2>1. Category Definition & Keyword Research</h2>
+    <p>Each category starts with real search behavior:</p>
+    <ul>
+      <li>Analyze Google Search Console + Ahrefs/SEMrush for "dorm essentials," "first apartment checklist," "tiny kitchen appliances"</li>
+      <li>Map to seed keywords with commercial intent (price + review volume signals)</li>
+      <li>Define 13 articles per category covering: best-roundup (50%), vs-comparison (20%), single-review (20%), buying-guide (10%)</li>
+    </ul>
+
+    <h2>2. Product Discovery & Shortlisting</h2>
+    <p>For each article, we build a candidate pool of 20-50 products:</p>
+    <ul>
+      <li>Amazon best-sellers + "Amazon's Choice" in relevant subcategories</li>
+      <li>Wirecutter / RTings / Consumer Reports top picks (cross-reference)</li>
+      <li>Reddit: r/dorm, r/firstapartment, r/tinykitchen, r/buyitforlife — filter for 50+ upvotes, recent (< 12 months)</li>
+      <li>Exclude: < 100 reviews, < 4.0 stars, known quality issues, discontinued</li>
+    </ul>
+
+    <h2>3. Hands-On Testing (Where Possible)</h2>
+    <p>We prioritize physical testing for high-commission / high-consideration items:</p>
+    <ul>
+      <li>Mattresses, toppers, bedding — tested for comfort, fit, durability over 30+ nights</li>
+      <li>Cookware, appliances — tested for performance, cleanup, storage footprint</li>
+      <li>Storage, organizers — tested in actual dorm/apartment spaces</li>
+    </ul>
+    <p>For items we can't test personally, we aggregate 500+ verified purchaser reviews.</p>
+
+    <h2>4. Scoring Rubric</h2>
+    <p>Every product scores 1-10 across weighted criteria:</p>
+    <table class="comparison-table">
+      <thead>
+        <tr><th>Criterion</th><th>Weight</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Functionality</td><td>30%</td><td>Does it do the job well?</td></tr>
+        <tr><td>Space Efficiency</td><td>25%</td><td>Footprint vs. utility, collapsibility, multi-use</td></tr>
+        <tr><td>Durability</td><td>20%</td><td>Materials, warranty, review longevity signals</td></tr>
+        <tr><td>Value</td><td>15%</td><td>Price per year of useful life</td></tr>
+        <tr><td>Ease of Use</td><td>10%</td><td>Setup, cleanup, learning curve</td></tr>
+      </tbody>
+    </table>
+
+    <h2>5. Badge Assignment</h2>
+    <ul>
+      <li><strong>Best Overall</strong> — Top composite score, meets all category needs</li>
+      <li><strong>Runner Up</strong> — Strong alternative, different strength (budget, premium, specific use case)</li>
+      <li><strong>Best Value</strong> — Highest score-to-price ratio, "smart buy"</li>
+    </ul>
+    <p>Badges are <strong>not</strong> influenced by commission rates.</p>
+
+    <h2>6. Content Structure Standards</h2>
+    <p>Every guide follows the same scannable format:</p>
+    <ol>
+      <li>Quick Picks (3 products, badges, prices, CTAs)</li>
+      <li>Comparison Table (specs, ratings, prices side-by-side)</li>
+      <li>Detailed Reviews (pros/cons, real experience, specs)</li>
+      <li>Buying Guide (what to look for, what to avoid)</li>
+      <li>FAQ (5-7 real questions from search + Reddit)</li>
+    </ol>
+
+    <h2>7. Update Cadence</h2>
+    <ul>
+      <li><strong>Monthly:</strong> Price checks, availability, new model releases</li>
+      <li><strong>Quarterly:</strong> Full re-review of top picks, new competitor analysis</li>
+      <li><strong>Annually:</strong> Complete guide rewrite with new testing</li>
+    </ul>
+    <p>Last updated date shown on every article.</p>
+
+    <h2>8. SEO & Technical Standards</h2>
+    <ul>
+      <li>JSON-LD: Article, Product, Review, FAQ, Breadcrumb, HowTo, Organization</li>
+      <li>Core Web Vitals: LCP < 2.5s, CLS < 0.1, FID < 100ms</li>
+      <li>Images: WebP/SVG, lazy-loaded, alt text = product name + key spec</li>
+      <li>Internal linking: Category → Article, Article → Related, Cross-category</li>
+    </ul>
+
+    <h2>9. Affiliate Link Construction</h2>
+    <ul>
+      <li>Amazon OneLink: Auto-redirects to local .com/.ca/.co.uk/.de/.co.jp/.com.au</li>
+      <li>Tag: <code>matnix-20</code> (US) + country-specific tags</li>
+      <li>Geniuslink/Levanta ready for Choice Pages (when enabled)</li>
+      <li><code>rel="noopener sponsored"</code> on all affiliate links</li>
+    </ul>
+
+    <h2>10. Quality Gates (Pre-Publish)</h2>
+    <p>Every article passes automated validation:</p>
+    <ul>
+      <li>✅ Zero broken internal links</li>
+      <li>✅ All images exist + have alt text</li>
+      <li>✅ All JSON-LD schemas valid</li>
+      <li>✅ HTML: DOCTYPE, lang, title, single H1, meta description</li>
+      <li>✅ Word count ≥ 1,500 (roundups) / ≥ 1,000 (reviews)</li>
+      <li>✅ 3+ products with ASINs, prices, ratings</li>
+      <li>✅ 5+ FAQ entries from real search queries</li>
+    </ul>
+  </article>
+</section>
+{% endblock %}
