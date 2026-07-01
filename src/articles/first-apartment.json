@@ -8,7 +8,7 @@
     "readTime": 22,
     "featured": true,
     "tags": ["first apartment checklist", "apartment essentials", "moving out list", "new apartment must haves"],
-    "ogImage": "/assets/images/first-apartment-checklist-og.jpg",
+    "ogImage": "/assets/images/first-apartment-checklist-og.svg",
     "quickPicks": [
       { "name": "Instant Pot Duo 7-in-1", "shortDesc": "Pressure cooker, slow cooker, rice cooker, yogurt maker", "price": "$99.99", "priceDisplay": "$99.99", "rating": 4.8, "reviewCount": 234000, "image": "https://m.media-amazon.com/images/I/71C.jpg", "affiliateUrl": "https://amazon.com/dp/B07C7C7C7C?tag=matnix-20", "badge": "best", "badgeLabel": "Best Kitchen Investment" },
       { "name": "Tuft & Needle Original Mattress (Queen)", "shortDesc": "Adaptive foam, 100-night trial, made in USA", "price": "$745.00", "priceDisplay": "$745.00", "rating": 4.6, "reviewCount": 45000, "image": "https://m.media-amazon.com/images/I/71D.jpg", "affiliateUrl": "https://amazon.com/dp/B08D8D8D8D?tag=matnix-20", "badge": "runner", "badgeLabel": "Best Mattress" },

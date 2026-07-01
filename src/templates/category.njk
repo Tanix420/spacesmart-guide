@@ -22,7 +22,7 @@
     {% for article in articles %}
     <a href="{{ site.url }}/{{ article.category }}/{{ article.slug }}/" class="category-card">
       {% if article.ogImage %}
-      <img src="{{ article.ogImage }}" alt="" class="category-card-image" loading="lazy" style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: 1rem;">
+      <img src="{{ article.ogImage }}" alt="{{ article.title }} - {{ article.excerpt }}" class="category-card-image" loading="lazy" style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: 1rem;">
       {% endif %}
       <h3>{{ article.title }}</h3>
       <p>{{ article.excerpt }}</p>

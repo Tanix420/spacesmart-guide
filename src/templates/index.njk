@@ -31,7 +31,7 @@
       <span class="quick-pick-badge">{% if loop.index == 1 %}Best Overall{% elif loop.index == 2 %}Runner Up{% else %}Best Value{% endif %}</span>
       {% endif %}
       {% if article.ogImage %}
-      <img src="{{ article.ogImage }}" alt="{{ article.title }}" class="quick-pick-image" loading="lazy">
+      <img src="{{ article.ogImage }}" alt="{{ article.title }} - {{ article.excerpt }}" class="quick-pick-image" loading="lazy">
       {% endif %}
       <h3 class="quick-pick-title">{{ article.title }}</h3>
       <p class="quick-pick-desc">{{ article.excerpt }}</p>

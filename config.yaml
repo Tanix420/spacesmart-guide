@@ -113,7 +113,7 @@ design:
     lg: "0 10px 15px rgba(0,0,0,0.1)"
 
 seo:
-  default_image: "/assets/og-default.jpg"
+  default_image: "/assets/images/og-default.svg"
   twitter_handle: "@spacesmartguide"
   schema:
     organization:

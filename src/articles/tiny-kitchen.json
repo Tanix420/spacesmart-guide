@@ -8,7 +8,7 @@
     "readTime": 16,
     "featured": true,
     "tags": ["compact appliances", "small kitchen", "studio apartment", "air fryer", "toaster oven", "induction burner"],
-    "ogImage": "/assets/images/compact-appliances-og.jpg",
+    "ogImage": "/assets/images/compact-appliances-og.svg",
     "quickPicks": [
       { "name": "Ninja AF101 Air Fryer (4 qt)", "shortDesc": "Best overall — 4 qt, 4 functions, dishwasher safe", "price": "$99.99", "priceDisplay": "$99.99", "rating": 4.7, "reviewCount": 156000, "image": "https://m.media-amazon.com/images/I/71F.jpg", "affiliateUrl": "https://amazon.com/dp/B07F7F7F7F?tag=matnix-20", "badge": "best", "badgeLabel": "Best Overall" },
       { "name": "Breville Compact Smart Oven", "shortDesc": "Element IQ, 8 functions, fits 11\" pizza", "price": "$179.99", "priceDisplay": "$179.99", "rating": 4.6, "reviewCount": 12000, "image": "https://m.media-amazon.com/images/I/71G.jpg", "affiliateUrl": "https://amazon.com/dp/B08G8G8G8G?tag=matnix-20", "badge": "runner", "badgeLabel": "Best Toaster Oven" },

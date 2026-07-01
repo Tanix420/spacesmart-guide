@@ -1,0 +1,68 @@
+{
+  "timestamp": "2026-07-01T18:56:04.430Z",
+  "site": "https://spacesmart-guide.com",
+  "traffic": {
+    "pages": [],
+    "queries": [],
+    "countries": [],
+    "devices": []
+  },
+  "issues": {
+    "drops": [],
+    "newKeywords": [],
+    "lostKeywords": [],
+    "errors": [
+      {
+        "type": "sitemap",
+        "message": "Very few URLs in sitemap"
+      },
+      {
+        "type": "title",
+        "message": "Title length: 75 chars (optimal: 30-60)",
+        "url": "/dorm-essentials/best-dorm-essentials-2026/"
+      },
+      {
+        "type": "description",
+        "message": "Meta description length: 167 chars (optimal: 120-160)",
+        "url": "/dorm-essentials/best-dorm-essentials-2026/"
+      },
+      {
+        "type": "title",
+        "message": "Title length: 85 chars (optimal: 30-60)",
+        "url": "/dorm-essentials/best-twin-xl-bedding-2026/"
+      },
+      {
+        "type": "title",
+        "message": "Title length: 80 chars (optimal: 30-60)",
+        "url": "/first-apartment/first-apartment-essentials-checklist-2026/"
+      },
+      {
+        "type": "description",
+        "message": "Meta description length: 173 chars (optimal: 120-160)",
+        "url": "/first-apartment/first-apartment-essentials-checklist-2026/"
+      },
+      {
+        "type": "title",
+        "message": "Title length: 85 chars (optimal: 30-60)",
+        "url": "/tiny-kitchen/best-compact-kitchen-appliances-2026/"
+      },
+      {
+        "type": "description",
+        "message": "Meta description length: 185 chars (optimal: 120-160)",
+        "url": "/tiny-kitchen/best-compact-kitchen-appliances-2026/"
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "priority": "medium",
+      "title": "Optimize Title Tags",
+      "action": "4 pages have suboptimal title length. Rewrite to 30-60 chars with target keyword near start."
+    },
+    {
+      "priority": "medium",
+      "title": "Fix Meta Descriptions",
+      "action": "3 pages have missing or suboptimal meta descriptions. Write compelling 120-160 char summaries."
+    }
+  ]
+}

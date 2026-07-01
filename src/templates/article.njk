@@ -1,13 +1,19 @@
 {% extends "layout.njk" %}
 
+{% set page = {
+  title: article.title,
+  description: article.excerpt,
+  keywords: article.tags | join(', ') if article.tags else 'small spaces, ' + article.categoryName,
+  canonicalUrl: article.canonicalUrl,
+  ogImage: article.ogImage,
+  twitterCard: 'summary_large_image'
+} %}
+
 {% block structuredData %}
-<script type="application/ld+json">{{ articleSchema | safe }}</script>
-<script type="application/ld+json">{{ breadcrumbSchema | safe }}</script>
-{% for productSchema in productSchemas %}
-<script type="application/ld+json">{{ productSchema | safe }}</script>
+{% if schemas %}
+{% for schema in schemas %}
+<script type="application/ld+json">{{ schema | jsonLd | safe }}</script>
 {% endfor %}
-{% if faqSchema %}
-<script type="application/ld+json">{{ faqSchema | safe }}</script>
 {% endif %}
 {% endblock %}
 
@@ -49,23 +55,23 @@
 
   <!-- Quick Picks -->
   {% if article.quickPicks %}
-  <section class="container" aria-labelledby="quick-picks-heading">
-    <h2 id="quick-picks-heading" style="margin-bottom: 1.5rem;">Quick Picks</h2>
-    <div class="quick-picks">
-      {% for pick in article.quickPicks %}
-      <article class="quick-pick-card {{ pick.badge }}">
-        <span class="quick-pick-badge">{{ pick.badgeLabel }}</span>
-        {% if pick.image %}
-        <img src="{{ pick.image }}" alt="{{ pick.name }}" class="quick-pick-image" loading="lazy">
-        {% endif %}
-        <h3 class="quick-pick-title">{{ pick.name }}</h3>
-        <p class="quick-pick-desc">{{ pick.shortDesc }}</p>
-        <div class="quick-pick-price">{{ pick.price }}</div>
-        <a href="{{ pick.affiliateUrl }}" class="btn btn-primary quick-pick-cta" target="_blank" rel="noopener sponsored">Check Price →</a>
-      </article>
-      {% endfor %}
-    </div>
-  </section>
+    <section class="container" aria-labelledby="quick-picks-heading">
+      <h2 id="quick-picks-heading" style="margin-bottom: 1.5rem;">Quick Picks</h2>
+      <div class="quick-picks">
+        {% for pick in article.quickPicks %}
+        <article class="quick-pick-card {{ pick.badge }}">
+          <span class="quick-pick-badge">{{ pick.badgeLabel }}</span>
+          {% if pick.image %}
+          <img src="{{ pick.image }}" alt="{{ pick.name }} - {{ pick.shortDesc }}" class="quick-pick-image" loading="lazy">
+          {% endif %}
+          <h3 class="quick-pick-title">{{ pick.name }}</h3>
+          <p class="quick-pick-desc">{{ pick.shortDesc }}</p>
+          <div class="quick-pick-price">{{ pick.price }}</div>
+          <a href="{{ pick.affiliateUrl }}" class="btn btn-primary quick-pick-cta" target="_blank" rel="noopener sponsored">Check Price &rarr;</a>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
   {% endif %}
 
   <!-- Comparison Table -->
@@ -89,7 +95,7 @@
           <tr>
             <td class="product-name">{{ product.name }}</td>
             <td class="price">{{ product.price }}</td>
-            <td class="rating">{{ product.rating }}★ ({{ product.reviewCount }})</td>
+            <td class="rating">{{ product.rating }}&#9733; ({{ product.reviewCount }})</td>
             <td>{{ product.bestFor }}</td>
             <td>{{ product.keySpec }}</td>
             <td class="cta-cell">
@@ -107,42 +113,42 @@
   <div class="container">
     <div class="article-body" itemprop="articleBody">
       {% for section in article.sections %}
-      {% if section.type === 'intro' %}
+      {% if section.type == 'intro' %}
       <div class="article-intro">{{ section.content | markdown }}</div>
-      {% elif section.type === 'heading' %}
+      {% elif section.type == 'heading' %}
       <h2>{{ section.content }}</h2>
-      {% elif section.type === 'subheading' %}
+      {% elif section.type == 'subheading' %}
       <h3>{{ section.content }}</h3>
-      {% elif section.type === 'paragraph' %}
+      {% elif section.type == 'paragraph' %}
       <p>{{ section.content | markdown }}</p>
-      {% elif section.type === 'productCard' %}
+      {% elif section.type == 'productCard' %}
       {% set product = section.product %}
       {% set badge = section.badge %}
       {% include "partials/product-card.njk" %}
-      {% elif section.type === 'prosCons' %}
+      {% elif section.type == 'prosCons' %}
       <div class="pros-cons">
         <div class="pros-cons-list pros">
-          <h4 class="pros-cons-title">✓ Pros</h4>
+          <h4 class="pros-cons-title">&#10003; Pros</h4>
           <ul>
             {% for pro in section.pros %}<li>{{ pro }}</li>{% endfor %}
           </ul>
         </div>
         <div class="pros-cons-list cons">
-          <h4 class="pros-cons-title">✕ Cons</h4>
+          <h4 class="pros-cons-title">&#10005; Cons</h4>
           <ul>
             {% for con in section.cons %}<li>{{ con }}</li>{% endfor %}
           </ul>
         </div>
       </div>
-      {% elif section.type === 'alert' %}
+      {% elif section.type == 'alert' %}
       <div class="alert alert-{{ section.level }}">{{ section.content }}</div>
-      {% elif section.type === 'blockquote' %}
+      {% elif section.type == 'blockquote' %}
       <blockquote>{{ section.content }}</blockquote>
-      {% elif section.type === 'list' %}
+      {% elif section.type == 'list' %}
       <ul>
         {% for item in section.items %}<li>{{ item | markdown }}</li>{% endfor %}
       </ul>
-      {% elif section.type === 'numberedList' %}
+      {% elif section.type == 'numberedList' %}
       <ol>
         {% for item in section.items %}<li>{{ item | markdown }}</li>{% endfor %}
       </ol>

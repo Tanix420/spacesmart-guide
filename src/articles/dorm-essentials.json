@@ -9,7 +9,7 @@
     "readTime": 18,
     "featured": true,
     "tags": ["dorm essentials", "college freshman", "move in day", "twin xl bedding", "dorm storage"],
-    "ogImage": "/assets/images/best-dorm-essentials-og.jpg",
+    "ogImage": "/assets/images/best-dorm-essentials-og.svg",
     "quickPicks": [
       { "name": "Mellanni Twin XL Sheet Set", "shortDesc": "120K+ reviews, deep pockets fit 16\" mattresses", "price": "$32.99", "priceDisplay": "$32.99", "rating": 4.7, "reviewCount": 124000, "image": "https://m.media-amazon.com/images/I/71X.jpg", "affiliateUrl": "https://amazon.com/dp/B07X7X7X7X?tag=matnix-20", "badge": "best", "badgeLabel": "Best Overall" },
       { "name": "SimpleHouseware Closet Organizer", "shortDesc": "6 shelves, hangs in seconds, collapses for moves", "price": "$18.99", "priceDisplay": "$18.99", "rating": 4.6, "reviewCount": 45000, "image": "https://m.media-amazon.com/images/I/71Y.jpg", "affiliateUrl": "https://amazon.com/dp/B08Y8Y8Y8Y?tag=matnix-20", "badge": "runner", "badgeLabel": "Best Storage" },
@@ -64,7 +64,7 @@
     "readTime": 12,
     "featured": true,
     "tags": ["twin xl sheets", "dorm bedding", "college comforter", "mattress topper"],
-    "ogImage": "/assets/images/best-twin-xl-bedding-og.jpg",
+    "ogImage": "/assets/images/best-twin-xl-bedding-og.svg",
     "quickPicks": [
       { "name": "Mellanni Twin XL Sheet Set", "shortDesc": "Best overall — 120K+ reviews, deep pockets", "price": "$32.99", "priceDisplay": "$32.99", "rating": 4.7, "reviewCount": 124000, "image": "https://m.media-amazon.com/images/I/71X.jpg", "affiliateUrl": "https://amazon.com/dp/B07X7X7X7X?tag=matnix-20", "badge": "best", "badgeLabel": "Best Overall" },
       { "name": "Bedsure Twin XL Comforter", "shortDesc": "All-season, box stitching, corner loops", "price": "$42.99", "priceDisplay": "$42.99", "rating": 4.6, "reviewCount": 38000, "image": "https://m.media-amazon.com/images/I/71A.jpg", "affiliateUrl": "https://amazon.com/dp/B07A7A7A7A?tag=matnix-20", "badge": "runner", "badgeLabel": "Best Comforter" },
